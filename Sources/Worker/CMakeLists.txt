@@ -1,0 +1,1 @@
+add_executable(Worker main.cpp worker.cpp)
