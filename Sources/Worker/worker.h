@@ -5,7 +5,7 @@
 #include <functional>
 #include <queue>
 #include <thread>
-
+#include <iostream>
 struct Task {
   std::function<void()> func;
   Task(std::function<void()> func) : func(func) {};
@@ -60,7 +60,9 @@ public:
           if (task.func == nullptr) {
             break;
           }
+          std::cout << "Thread" << std::this_thread::get_id() << " executing task." << std::endl;
           task.execute();
+
         }
       }).detach();
     }
